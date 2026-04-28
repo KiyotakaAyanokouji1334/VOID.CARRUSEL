@@ -1,63 +1,28 @@
-
+<!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Galería de Imágenes</title>
     <style>
-        .carousel { 
-            position: relative; 
-            max-width: 700px; 
-            margin: 30px auto; 
-            overflow: hidden; 
-            border-radius: 15px; 
-            box-shadow: 0 0 25px rgba(0, 212, 255, 0.4); 
-        }
-        .carousel img { 
-            width: 100%; 
-            display: none; 
-        }
-        .carousel img.active { 
-            display: block; 
-        }
-        .buttons, .dots { 
-            text-align: center; 
-            margin-top: 15px; 
-        }
-        button { 
-            padding: 12px 20px; 
-            margin: 5px; 
-            border: none; 
-            border-radius: 8px; 
-            background: #00d4ff; 
-            color: #000; 
-            font-weight: bold; 
-            cursor: pointer; 
-        }
-        .dot { 
-            height: 12px; 
-            width: 12px; 
-            margin: 5px; 
-            display: inline-block; 
-            border-radius: 50%; 
-            background: gray; 
-            cursor: pointer; 
-        }
-        .dot.active { 
-            background: #00d4ff; 
-            box-shadow: 0 0 8px #00d4ff; 
-        }
+        .carousel { position: relative; max-width: 700px; margin: 30px auto; overflow: hidden; border-radius: 15px; box-shadow: 0 0 25px rgba(0, 212, 255, 0.4); }
+        .carousel img { width: 100%; display: none; }
+        .carousel img.active { display: block; }
+        .buttons, .dots { text-align: center; margin-top: 15px; }
+        button { padding: 12px 20px; margin: 5px; border: none; border-radius: 8px; background: #00d4ff; color: #000; font-weight: bold; cursor: pointer; }
+        .dot { height: 12px; width: 12px; margin: 5px; display: inline-block; border-radius: 50%; background: gray; cursor: pointer; }
+        .dot.active { background: #00d4ff; box-shadow: 0 0 8px #00d4ff; }
     </style>
 </head>
 <body>
 
     <section id="galeria">
         <div class="carousel">
-            <img src="imágenes/t1.jpg" class="active" alt="imagen 1">
-            <img src="imágenes/t2.jpg" alt="imagen 2">
-            <img src="imágenes/t3.jpg" alt="imagen 3">
-            <img src="imágenes/t4.jpg" alt="imagen 4">
-            <img src="imágenes/t5.jpg" alt="imagen 5">
+            <img src="imagenes/t1.jpg" class="active" alt="imagen 1">
+            <img src="imagenes/t2.jpg" alt="imagen 2">
+            <img src="imagenes/t3.jpg" alt="imagen 3">
+            <img src="imagenes/t4.jpg" alt="imagen 4">
+            <img src="imagenes/t5.jpg" alt="imagen 5">
         </div>
         <div class="buttons">
             <button onclick="prevSlide()">⟵ Anterior</button>
@@ -85,23 +50,9 @@
             slides[index].classList.add("active");
             dots[index].classList.add("active");
         }
-
-        function nextSlide() {
-            currentIndex = (currentIndex + 1) % slides.length;
-            showSlide(currentIndex);
-        }
-
-        function prevSlide() {
-            currentIndex = (currentIndex - 1 + slides.length) % slides.length;
-            showSlide(currentIndex);
-        }
-
-        function goToSlide(index) {
-            currentIndex = index;
-            showSlide(currentIndex);
-        }
-
-        // Intervalo automático
+        function nextSlide() { currentIndex = (currentIndex + 1) % slides.length; showSlide(currentIndex); }
+        function prevSlide() { currentIndex = (currentIndex - 1 + slides.length) % slides.length; showSlide(currentIndex); }
+        function goToSlide(index) { currentIndex = index; showSlide(currentIndex); }
         setInterval(nextSlide, 5000);
     </script>
 </body>
